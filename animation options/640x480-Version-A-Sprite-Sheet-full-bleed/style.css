@@ -102,14 +102,17 @@ body {
 }
 
 #story-sprite {
-  /* The feathered portrait footage animates inside the wider AI crop. */
+  /* Keep the face opaque. Blend only the outer edges into the wider crop. */
   position: absolute;
   left: 140px;
   top: 8px;
   width: 280px;
   height: 315px;
   background: url("images/motion-sprite.jpg") 0 0 / 1400px 945px no-repeat;
-  mask-image: radial-gradient(ellipse 136px 160px at 132px 145px, #000 49%, transparent 99%);
+  mask-image:
+    linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 38px), transparent),
+    linear-gradient(to bottom, transparent, #000 24px, #000 258px, transparent);
+  mask-composite: intersect;
   filter: brightness(1.1);
 }
 
