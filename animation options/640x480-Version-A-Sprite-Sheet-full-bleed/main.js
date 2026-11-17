@@ -16,6 +16,7 @@ function animate() {
   const motion = { elapsed: 0 };
   const frameCount = 15;
   const fps = 10;
+  const loopSteps = (frameCount - 1) * 2;
   const storyFadeOut = 0.35;
   tl.addLabel("frame1", 0);
 
@@ -42,7 +43,9 @@ function animate() {
     elapsed: motionDuration,
     ease: "none",
     onUpdate: function () {
-      const frame = Math.floor(motion.elapsed * fps) % frameCount;
+      // Reverse at each end so the loop never jumps between distant frames.
+      const step = Math.floor(motion.elapsed * fps) % loopSteps;
+      const frame = step < frameCount ? step : loopSteps - step;
       const column = frame % 5;
       const row = Math.floor(frame / 5);
       sprite.style.backgroundPosition = `${-column * 280}px ${-row * 315}px`;

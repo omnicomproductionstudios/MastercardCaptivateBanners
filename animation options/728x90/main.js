@@ -16,6 +16,7 @@ function animate() {
   const motion = { elapsed: 0 };
   const frameCount = 15;
   const fps = 10;
+  const loopSteps = (frameCount - 1) * 2;
   const storyFadeOut = 0.35;
   tl.addLabel("frame1", 0);
 
@@ -38,7 +39,7 @@ function animate() {
     .addLabel("frame4", "+=1.5")
     .to("#closing-lockup, #priceless", 0.3, { autoAlpha: 0, ease: "power1.inOut" }, "frame4")
     .to("#final-lockup", 0.4, { autoAlpha: 1, ease: "power1.inOut" })
-    .to("#cta", 0.2, { scale: 1.1, ease: "power1.inOut" }, "+=0.15")
+    .to("#cta", 0.2, { scale: 1.06, ease: "power1.inOut" }, "+=0.15")
     .to("#cta", 0.2, { scale: 1, ease: "power1.inOut" });
 
   // Loop the sprite while the story is on screen, including its fade-out.
@@ -47,7 +48,9 @@ function animate() {
     elapsed: motionDuration,
     ease: "none",
     onUpdate: function () {
-      const frame = Math.floor(motion.elapsed * fps) % frameCount;
+      // Reverse at each end so the loop never jumps between distant frames.
+      const step = Math.floor(motion.elapsed * fps) % loopSteps;
+      const frame = step < frameCount ? step : loopSteps - step;
       const column = frame % 5;
       const row = Math.floor(frame / 5);
       sprite.style.backgroundPosition = `${-column * 226}px ${-row * 90}px`;
@@ -66,7 +69,7 @@ function setRollover() {
 
 function defaultOver() {
   if (tl.progress() < 1) return;
-  gsap.to("#cta", 0.2, { scale: 1.1, ease: "power1.inOut", overwrite: "auto" });
+  gsap.to("#cta", 0.2, { scale: 1.06, ease: "power1.inOut", overwrite: "auto" });
 }
 
 function defaultOut() {
