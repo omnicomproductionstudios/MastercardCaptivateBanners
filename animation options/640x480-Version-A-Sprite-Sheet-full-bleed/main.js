@@ -18,10 +18,18 @@ function animate() {
   const fps = 10;
   const loopSteps = (frameCount - 1) * 2;
   const storyFadeOut = 0.35;
-  tl.addLabel("frame1", 0);
+  // Ease into the center, then settle before the wordmark rises in.
+  tl.addLabel("frame1", 0)
+    .to(".opening-red", 0.86, { attr: { cx: 287.25 }, ease: "power3.out" }, "frame1+=0.24")
+    .to(".opening-orange", 0.86, { attr: { cx: 352.75 }, ease: "power3.out" }, "frame1+=0.24")
+    .to(".opening-red", 0.18, { attr: { cx: 291.75 }, ease: "sine.inOut", repeat: 1, yoyo: true }, "frame1+=1.15")
+    .to(".opening-orange", 0.18, { attr: { cx: 348.25 }, ease: "sine.inOut", repeat: 1, yoyo: true }, "frame1+=1.15")
+    .to(".opening-red", 0.5, { attr: { cx: 287.25, cy: 239 }, ease: "sine.inOut" }, "frame1+=1.86")
+    .to(".opening-orange", 0.5, { attr: { cx: 352.75, cy: 239 }, ease: "sine.inOut" }, "frame1+=1.86")
+    .fromTo("#opening-lockup", 0.42, { autoAlpha: 0, y: 5 }, { autoAlpha: 1, y: 0, ease: "sine.out" }, "frame1+=2.04");
 
   // Let the opening lockup clear before revealing the next frame.
-  tl.addLabel("frame2", "frame1+=1.5")
+  tl.addLabel("frame2", "frame1+=2.75")
     .to("#opening", 0.3, { autoAlpha: 0, ease: "power1.inOut" }, "frame2")
     .addLabel("storyStart")
     .to("#story", 0.4, { autoAlpha: 1, ease: "power1.inOut" })

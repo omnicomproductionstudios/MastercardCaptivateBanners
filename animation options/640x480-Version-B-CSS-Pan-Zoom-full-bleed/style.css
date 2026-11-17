@@ -85,6 +85,17 @@ body {
   opacity: 0;
 }
 
+.opening-symbol {
+  position: absolute;
+  inset: 0;
+  width: 640px;
+  height: 480px;
+}
+
+#opening-lockup {
+  clip-path: inset(74% 0 0);
+}
+
 #opening-lockup,
 #closing-lockup {
   left: 203px;
@@ -112,18 +123,25 @@ body {
 }
 
 @keyframes pan-zoom {
-  from { transform: translate(0, 0) scale(1); }
-  to { transform: translate(-10px, 6px) scale(1.08); }
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(-10px, 6px) scale(1.08);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #story-photo { animation: none; }
+  #story-photo {
+    animation: none;
+  }
 }
 
 .story-gradient {
   background: linear-gradient(28deg, #ff5f00d0 0%, transparent 33%),
-              linear-gradient(208deg, #ff5f00a8 0%, transparent 35%),
-              radial-gradient(ellipse at center, #101b2833, transparent 70%);
+    linear-gradient(208deg, #ff5f00a8 0%, transparent 35%),
+    radial-gradient(ellipse at center, #101b2833, transparent 70%);
 }
 
 .story-overlay {
@@ -159,7 +177,7 @@ body {
   font-size: 40px;
   line-height: 48px;
   text-align: center;
-  text-shadow: 0 1px 5px #071019;
+  text-shadow: 0 1px 13px #071019bd;
 }
 
 #priceless {

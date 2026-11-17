@@ -89,6 +89,17 @@ body {
   opacity: 0;
 }
 
+.opening-symbol {
+  position: absolute;
+  inset: 0;
+  width: 728px;
+  height: 90px;
+}
+
+#opening-lockup {
+  clip-path: inset(0 0 0 28%);
+}
+
 #opening-lockup {
   left: 213.5px;
   top: 21.5px;

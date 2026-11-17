@@ -20,7 +20,17 @@
     <!--start main_container-->
     <div id="main_content">
       <div id="opening" class="layer">
-        <img id="opening-lockup" class="art" src="images/opening-lockup.png" alt="Mastercard cybersecurity" width="234.5" height="167">
+        <svg class="opening-symbol" viewBox="0 0 640 480" aria-hidden="true">
+          <defs>
+            <clipPath id="opening-red-clip">
+              <circle class="opening-red" cx="-53.25" cy="275" r="53.25"/>
+            </clipPath>
+          </defs>
+          <circle class="opening-red" cx="-53.25" cy="275" r="53.25" fill="#eb001b"/>
+          <circle class="opening-orange" cx="693.25" cy="275" r="53.25" fill="#f79e1b"/>
+          <circle class="opening-orange" cx="693.25" cy="275" r="53.25" fill="#ff5f00" clip-path="url(#opening-red-clip)"/>
+        </svg>
+        <img id="opening-lockup" class="art hidden" src="images/opening-lockup.png" alt="Mastercard cybersecurity" width="234.5" height="167">
       </div>
       <div id="story" class="layer hidden">
         <img id="story-photo" src="images/story-photo.jpg" alt="" width="640" height="480">
