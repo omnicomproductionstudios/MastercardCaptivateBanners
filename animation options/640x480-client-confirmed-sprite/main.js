@@ -33,8 +33,9 @@ function animate() {
   tl.addLabel("frame3")
     .to("#story", storyFadeOut, { autoAlpha: 0, ease: "power1.inOut" }, "frame3")
     .set("#final", { autoAlpha: 1 }, "frame3+=0.35")
-    .to(".final-red", 0.85, { attr: { cx: 287.25 }, ease: "power3.out" }, "frame3+=0.45")
-    .to(".final-orange", 0.85, { attr: { cx: 352.75 }, ease: "power3.out" }, "frame3+=0.45")
+    .to("#final-heading", 0.45, { autoAlpha: 1, ease: "power1.out" }, "frame3+=0.45")
+    .to(".final-red", 0.85, { attr: { cx: 287.25 }, ease: "power3.out" }, "frame3+=1.05")
+    .to(".final-orange", 0.85, { attr: { cx: 352.75 }, ease: "power3.out" }, "frame3+=1.05")
     .fromTo("#final-wordmark", 0.65, {
       autoAlpha: 0,
       "--reveal": "100%"
@@ -43,7 +44,6 @@ function animate() {
       "--reveal": "0%",
       ease: "sine.out"
     }, "+=0.15")
-    .to("#final-heading", 0.45, { autoAlpha: 1, ease: "power1.out" }, "+=0.15")
     .to("#final-cta", 0.4, { autoAlpha: 1, ease: "power1.out" }, "+=0.15");
 
   // Loop the sprite from the story reveal through the end of its fade-out.
