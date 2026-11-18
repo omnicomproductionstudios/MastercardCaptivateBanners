@@ -101,7 +101,7 @@ body {
 }
 
 #story {
-  background: #111b23 url("images/story-photo.jpg") center / 640px 480px no-repeat;
+  background: #111b23;
 }
 
 .story-gradient,
@@ -111,18 +111,11 @@ body {
 }
 
 #story-sprite {
-  /* Keep the face opaque. Blend only the outer edges into the wider crop. */
   position: absolute;
-  left: 140px;
-  top: 8px;
-  width: 280px;
-  height: 315px;
-  background: url("images/motion-sprite.jpg") 0 0 / 1400px 945px no-repeat;
-  mask-image:
-    linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 38px), transparent),
-    linear-gradient(to bottom, transparent, #000 24px, #000 258px, transparent);
-  mask-composite: intersect;
-  filter: brightness(1.1);
+  inset: 0;
+  width: 640px;
+  height: 480px;
+  background: url("images/motion-sprite.webp") 0 0 / 3200px 1440px no-repeat;
 }
 
 .story-gradient {
@@ -191,3 +184,10 @@ body {
 #final-wordmark img { position: absolute; left: 0; top: -127.5px; }
 #final-heading { position: absolute; top: 67.44px; left: 0; right: 0; text-align: center; font-size: 26px; line-height: 37px; }
 #final-cta { position: absolute; left: 261.5px; top: 425.5px; width: 117px; border-radius: 15px; font-size: 15.09px; line-height: 30px; background: #f79e1b; font-family: 'Mark for MC Medium'; text-align: center; }
+
+#final-wordmark {
+  --reveal: 100%;
+  mask-image: linear-gradient(to right, #000 0%, #000 40%, transparent 60%, transparent 100%);
+  mask-size: 250% 100%;
+  mask-position: var(--reveal) 0;
+}

@@ -35,7 +35,14 @@ function animate() {
     .set("#final", { autoAlpha: 1 }, "frame3+=0.35")
     .to(".final-red", 0.85, { attr: { cx: 287.25 }, ease: "power3.out" }, "frame3+=0.45")
     .to(".final-orange", 0.85, { attr: { cx: 352.75 }, ease: "power3.out" }, "frame3+=0.45")
-    .to("#final-wordmark", 0.45, { autoAlpha: 1, ease: "power1.out" }, "+=0.15")
+    .fromTo("#final-wordmark", 0.65, {
+      autoAlpha: 0,
+      "--reveal": "100%"
+    }, {
+      autoAlpha: 1,
+      "--reveal": "0%",
+      ease: "sine.out"
+    }, "+=0.15")
     .to("#final-heading", 0.45, { autoAlpha: 1, ease: "power1.out" }, "+=0.15")
     .to("#final-cta", 0.4, { autoAlpha: 1, ease: "power1.out" }, "+=0.15");
 
@@ -50,7 +57,7 @@ function animate() {
       const frame = step < frameCount ? step : loopSteps - step;
       const column = frame % 5;
       const row = Math.floor(frame / 5);
-      sprite.style.backgroundPosition = `${-column * 280}px ${-row * 315}px`;
+      sprite.style.backgroundPosition = `${-column * 640}px ${-row * 480}px`;
     },
   }, "storyStart");
 }
