@@ -1,0 +1,226 @@
+@font-face {
+  font-family: 'Mark for MC';
+  src: url('fonts/subset-MarkOffcForMC.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mark for MC Medium';
+  src: url('fonts/subset-MarkOffcForMC-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Mark for MC Bold';
+  src: url('fonts/subset-MarkOffcForMC-Bold.woff2') format('woff2');
+}
+
+body {
+  margin: 0;
+}
+
+#main_container {
+  position: absolute;
+  display: block;
+  width: 728px;
+  height: 90px;
+  background: #ffeed9;
+  font-family: 'Mark for MC', Arial, sans-serif;
+
+  border: 1px solid #000000;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+#main_content,
+#default_exit {
+  position: absolute;
+  inset: 0;
+}
+
+#default_exit {
+  z-index: 1;
+  cursor: pointer;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#opening,
+#closing {
+  background: #ffeed9;
+}
+
+.art,
+.copy,
+#cta {
+  position: absolute;
+}
+
+.copy,
+#cta {
+  margin: 0;
+}
+
+#trust-copy {
+  font-family: 'Mark for MC';
+}
+
+.copy strong {
+  font-family: 'Mark for MC Bold';
+}
+
+#cta {
+  background: #f79e1b;
+  font-family: 'Mark for MC Medium';
+  text-align: center;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.opening-symbol {
+  position: absolute;
+  inset: 0;
+  width: 728px;
+  height: 90px;
+}
+
+
+
+#opening-lockup {
+  left: 213.5px;
+  top: 21.5px;
+}
+
+/* Match the photo window on the 728x90 B artboard. */
+.story-panel {
+  position: absolute;
+  left: 74.76px;
+  top: 0;
+  width: 202.49px;
+  height: 90px;
+  overflow: hidden;
+}
+
+#story-sprite {
+  position: absolute;
+  left: -11.75px;
+  top: 0;
+  width: 226px;
+  height: 90px;
+  background: url("images/motion-sprite.jpg") 0 0 / 1130px 270px no-repeat;
+}
+
+.story-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, transparent 45%, #ff5f0033);
+}
+
+.story-overlay::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 33px;
+  width: 48px;
+  height: 44px;
+  opacity: .55;
+  filter: blur(1px);
+  background: repeating-linear-gradient(to bottom, #ebf8ff81 0 2px, transparent 3px 12px);
+}
+
+.brand-disc {
+  position: absolute;
+  top: 17.4px;
+  width: 55.2px;
+  height: 55.2px;
+  border-radius: 50%;
+}
+
+.brand-disc-left {
+  left: 30px;
+  background: linear-gradient(90deg, #eb001b 0 44.76px, #ff5f0094 44.76px);
+}
+
+.brand-disc-right {
+  left: 266.4px;
+  background: linear-gradient(90deg, #ff5f0094 0 10.85px, #f79e1b 10.85px);
+}
+
+#story-copy {
+  top: 24.22px;
+  left: 520px;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 18px;
+  line-height: 21px;
+  white-space: nowrap;
+}
+
+#closing-lockup {
+  left: 527.5px;
+  top: 22px;
+}
+
+#priceless {
+  top: 36.25px;
+  left: 34.02px;
+  text-align: left;
+  font-size: 15px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+#final-lockup {
+  left: 174px;
+  top: 21.5px;
+}
+
+#cta {
+  left: 620.5px;
+  top: 32px;
+  width: 101px;
+  border-radius: 13px;
+  font-size: 13px;
+  line-height: 26px;
+}
+
+#final { background: #ffeed9; }
+#final-symbol { position: absolute; inset: 0; width: 728px; height: 90px; }
+#final-wordmark { position: absolute; left: 263.8px; top: 21.5px; width: 211px; height: 47px; overflow: hidden; }
+#final-wordmark img { position: absolute; left: -89.8px; top: 0; }
+#final-cta { position: absolute; left: 620.5px; top: 32px; width: 101px; border-radius: 13px; font-size: 13px; line-height: 26px; background: #f79e1b; font-family: 'Mark for MC Medium'; text-align: center; }
+
+
+/* Feather the wordmark reveal without moving the letters through a crop. */
+#final-wordmark {
+  --reveal: 100%;
+  mask-image: linear-gradient(to right, #000 0%, #000 40%, transparent 60%, transparent 100%);
+  mask-size: 250% 100%;
+  mask-position: var(--reveal) 0;
+}
+
+
+
+#opening-wordmark { position: absolute; left: 303.3px; top: 21.5px; width: 211px; height: 47px; overflow: hidden; }
+#opening-wordmark #opening-lockup { position: absolute; left: -89.8px; top: 0; }
+#opening-symbol { position: absolute; inset: 0; width: 728px; height: 90px; pointer-events: none; }
+
+.story-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(28deg, #ff5f00d0 0%, transparent 33%),
+    linear-gradient(208deg, #ff5f00a8 0%, transparent 35%),
+    radial-gradient(ellipse at center, #101b2833, transparent 70%);
+}
