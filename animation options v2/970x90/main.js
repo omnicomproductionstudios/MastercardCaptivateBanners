@@ -14,32 +14,48 @@ gsap.config({
 function animate() {
   const sprite = document.getElementById("story-sprite");
   const motion = { elapsed: 0 };
-  tl.addLabel("frame1", 0);
+  // Frame 1: Hold, squeeze together, then release the lock.
+  tl.addLabel("frame1", 0)
+    .to(".opening-red", 0.24, { attr: { cx: 362 }, ease: "sine.inOut" }, "frame1+=0.72")
+    .to(".opening-orange", 0.24, { attr: { cx: 383 }, ease: "sine.inOut" }, "frame1+=0.72")
+    .to(".opening-red", 0.42, { attr: { cx: 358 }, ease: "sine.inOut" }, "frame1+=0.96")
+    .to(".opening-orange", 0.42, { attr: { cx: 387 }, ease: "sine.inOut" }, "frame1+=0.96");
 
-  // Let the opening lockup clear before revealing the next frame.
-  tl.addLabel("frame2", "frame1+=1.5")
-    .to("#opening", 0.3, { autoAlpha: 0, ease: "power1.inOut" }, "frame2")
-    .addLabel("storyStart")
-    .to("#story", 0.4, { autoAlpha: 1, ease: "power1.inOut" })
+  // The same circles separate to either side of the non-full-bleed image.
+  tl.addLabel("frame2", "frame1+=1.62")
+    .to("#opening-wordmark", 0.2, { autoAlpha: 0, ease: "sine.inOut" }, "frame2")
+    .to(".opening-red", 0.65, { attr: { cx: 57.6, r: 27.6 }, ease: "power2.inOut" }, "frame2+=0.15")
+    .to(".opening-orange", 0.65, { attr: { cx: 505.9, r: 27.6 }, ease: "power2.inOut" }, "frame2+=0.15")
+    .to(".red-edge, .orange-edge", 0.3, {
+      attr: { "stop-color": "#ff5f00", "stop-opacity": 0.58 },
+      ease: "sine.inOut"
+    }, "frame2+=0.6")
+    .addLabel("storyStart", "frame2+=0.3")
+    .to("#opening", 0.4, { autoAlpha: 0, ease: "sine.inOut" }, "storyStart")
+    .to("#story", 0.4, { autoAlpha: 1, ease: "sine.inOut" }, "storyStart")
     .to("#story-copy", 0.45, { autoAlpha: 1, ease: "power1.out" }, "+=0.1")
     .to("#story-copy", 0.35, { autoAlpha: 0, ease: "power1.inOut" }, "+=2.85");
 
   // Clear the story before bringing back the lockup, priceless line and CTA.
   tl.addLabel("frame3")
-    .to("#story", 0.35, { autoAlpha: 0, ease: "power1.inOut" })
+    .to("#story, #opening-symbol", 0.35, { autoAlpha: 0, ease: "power1.inOut" })
     .to("#closing", 0.4, { autoAlpha: 1, ease: "power1.inOut" })
     .to("#priceless", 0.45, { autoAlpha: 1, ease: "power1.out" }, "+=0.1")
     .to("#cta", 0.4, { autoAlpha: 1, ease: "power1.out" }, "+=0.15")
 
-    // Frame 4: Meet at the center, shift left together, then reveal the tagline.
+    // Frame 4: Meet, lock together, then settle left and reveal cybersecurity.
     .addLabel("frame4", "+=1.5")
     .to("#closing", 0.35, { autoAlpha: 0, ease: "sine.inOut" }, "frame4")
     .set("#final", { autoAlpha: 1 }, "frame4+=0.35")
     .to("#final-symbol", 0.2, { autoAlpha: 1, ease: "sine.out" }, "frame4+=0.45")
     .to(".final-red", 0.65, { attr: { cx: 470.5 }, ease: "power3.out" }, "frame4+=0.45")
     .to(".final-orange", 0.65, { attr: { cx: 499.5 }, ease: "power3.out" }, "frame4+=0.45")
-    .to(".final-red", 0.55, { attr: { cx: 318.5 }, ease: "sine.inOut" }, "frame4+=1.3")
-    .to(".final-orange", 0.55, { attr: { cx: 347.5 }, ease: "sine.inOut" }, "frame4+=1.3")
+    .to(".final-red", 0.24, { attr: { cx: 474.5 }, ease: "sine.inOut" }, "frame4+=1.2")
+    .to(".final-orange", 0.24, { attr: { cx: 495.5 }, ease: "sine.inOut" }, "frame4+=1.2")
+    .to(".final-red", 0.42, { attr: { cx: 470.5 }, ease: "sine.inOut" }, "frame4+=1.44")
+    .to(".final-orange", 0.42, { attr: { cx: 499.5 }, ease: "sine.inOut" }, "frame4+=1.44")
+    .to(".final-red", 0.55, { attr: { cx: 318.5 }, ease: "sine.inOut" }, "frame4+=2")
+    .to(".final-orange", 0.55, { attr: { cx: 347.5 }, ease: "sine.inOut" }, "frame4+=2")
     .fromTo("#final-wordmark", 0.65, {
       autoAlpha: 0,
       "--reveal": "100%"
@@ -47,7 +63,7 @@ function animate() {
       autoAlpha: 1,
       "--reveal": "0%",
       ease: "sine.out"
-    }, "frame4+=1.85")
+    }, "frame4+=2.3")
     .to("#final-cta", 0.4, { autoAlpha: 1, ease: "power1.out" }, "+=0.15");
 
   const duration = tl.labels.frame3 + 0.35 - tl.labels.storyStart;

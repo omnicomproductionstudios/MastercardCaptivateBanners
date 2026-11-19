@@ -153,3 +153,8 @@ body {
   mask-position: var(--reveal) 0;
 }
 
+
+
+#opening-wordmark { position: absolute; left: 424.3px; top: 21.5px; width: 211px; height: 47px; overflow: hidden; }
+#opening-wordmark #opening-lockup { position: absolute; left: -89.8px; top: 0; }
+#opening-symbol { position: absolute; inset: 0; width: 970px; height: 90px; pointer-events: none; }
