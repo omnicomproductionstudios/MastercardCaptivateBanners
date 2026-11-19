@@ -124,10 +124,6 @@ body {
     radial-gradient(ellipse at center, #101b2833, transparent 70%);
 }
 
-.story-overlay {
-  background: url("images/story-edges.svg") left top / 640px 480px no-repeat;
-}
-
 .ui-scan {
   position: absolute;
   top: 42px;

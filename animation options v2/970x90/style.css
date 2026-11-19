@@ -132,17 +132,87 @@ body {
   font-size: 13px;
   line-height: 26px;
 }
-.story-panel { position: absolute; left: 74.76px; top: 0; width: 414.32px; height: 90px; overflow: hidden; }
-#story-sprite { position: absolute; left: 0; top: -20px; width: 414.32px; height: 165.275px; background: url("images/motion-sprite.jpg") 0 0 / 2071.6px 495.825px no-repeat; }
-.story-overlay { position: absolute; inset: 0; background: linear-gradient(130deg, transparent 45%, #ff5f0033); }
-.story-disc { position: absolute; top: 17.4px; width: 55.2px; height: 55.2px; border-radius: 50%; }
-.left-disc { left: 30px; background: linear-gradient(90deg, #eb001b 0 44.76px, #ff5f0094 44.76px); }
-.right-disc { left: 478.3px; background: linear-gradient(90deg, #ff5f0094 0 10.8px, #f79e1b 10.8px); }
-#final { background: #ffeed9; }
-#final-symbol { position: absolute; inset: 0; width: 970px; height: 90px; }
-#final-wordmark { position: absolute; left: 384.8px; top: 21.5px; width: 211px; height: 47px; overflow: hidden; }
-#final-wordmark img { position: absolute; left: -89.8px; top: 0; }
-#final-cta { position: absolute; left: 857px; top: 30.5px; width: 101px; border-radius: 13px; font-size: 13px; line-height: 26px; background: #f79e1b; font-family: 'Mark for MC Medium'; text-align: center; }
+
+.story-panel {
+  position: absolute;
+  left: 74.76px;
+  top: 0;
+  width: 414.32px;
+  height: 90px;
+  overflow: hidden;
+}
+
+#story-sprite {
+  position: absolute;
+  left: 0;
+  top: -20px;
+  width: 414.32px;
+  height: 165.275px;
+  background: url("images/motion-sprite.jpg") 0 0 / 2071.6px 495.825px no-repeat;
+}
+
+.story-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, transparent 45%, #ff5f0033);
+}
+
+.story-disc {
+  position: absolute;
+  top: 17.4px;
+  width: 55.2px;
+  height: 55.2px;
+  border-radius: 50%;
+}
+
+.left-disc {
+  left: 30px;
+  background: linear-gradient(90deg, #eb001b 0 44.76px, #ff5f0094 44.76px);
+}
+
+.right-disc {
+  left: 478.3px;
+  background: linear-gradient(90deg, #ff5f0094 0 10.8px, #f79e1b 10.8px);
+}
+
+#final {
+  background: #ffeed9;
+}
+
+#final-symbol {
+  position: absolute;
+  inset: 0;
+  width: 970px;
+  height: 90px;
+}
+
+#final-wordmark {
+  position: absolute;
+  left: 384.8px;
+  top: 21.5px;
+  width: 211px;
+  height: 47px;
+  overflow: hidden;
+}
+
+#final-wordmark img {
+  position: absolute;
+  left: -89.8px;
+  top: 0;
+}
+
+#final-cta {
+  position: absolute;
+  left: 857px;
+  top: 30.5px;
+  width: 101px;
+  border-radius: 13px;
+  font-size: 13px;
+  line-height: 26px;
+  background: #f79e1b;
+  font-family: 'Mark for MC Medium';
+  text-align: center;
+}
 
 
 /* Feather the wordmark reveal without moving the letters through a crop. */
@@ -155,6 +225,25 @@ body {
 
 
 
-#opening-wordmark { position: absolute; left: 424.3px; top: 21.5px; width: 211px; height: 47px; overflow: hidden; }
-#opening-wordmark #opening-lockup { position: absolute; left: -89.8px; top: 0; }
-#opening-symbol { position: absolute; inset: 0; width: 970px; height: 90px; pointer-events: none; }
+#opening-wordmark {
+  position: absolute;
+  left: 424.3px;
+  top: 21.5px;
+  width: 211px;
+  height: 47px;
+  overflow: hidden;
+}
+
+#opening-wordmark #opening-lockup {
+  position: absolute;
+  left: -89.8px;
+  top: 0;
+}
+
+#opening-symbol {
+  position: absolute;
+  inset: 0;
+  width: 970px;
+  height: 90px;
+  pointer-events: none;
+}

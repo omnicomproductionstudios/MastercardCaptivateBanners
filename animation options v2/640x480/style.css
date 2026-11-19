@@ -185,9 +185,9 @@ body {
 #final-heading { position: absolute; top: 67.44px; left: 0; right: 0; text-align: center; font-size: 26px; line-height: 37px; }
 #final-cta { position: absolute; left: 261.5px; top: 425.5px; width: 117px; border-radius: 15px; font-size: 15.09px; line-height: 30px; background: #f79e1b; font-family: 'Mark for MC Medium'; text-align: center; }
 
-#final-wordmark {
-  --reveal: 100%;
-  mask-image: linear-gradient(to right, #000 0%, #000 40%, transparent 60%, transparent 100%);
-  mask-size: 250% 100%;
-  mask-position: var(--reveal) 0;
-}
+
+
+#opening-wordmark { position: absolute; left: 203px; top: 313px; width: 234.5px; height: 40px; overflow: hidden; }
+#opening-wordmark #opening-lockup { position: absolute; left: 0; top: -127.5px; }
+#opening-symbol { position: absolute; inset: 0; width: 640px; height: 480px; z-index: 2; pointer-events: none; }
+.story-overlay { background: none; }

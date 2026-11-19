@@ -20,7 +20,7 @@
     <!--start main_container-->
     <div id="main_content">
       <div id="opening" class="layer">
-        <img id="opening-lockup" class="art" src="images/opening-lockup.png" alt="Mastercard cybersecurity" width="234.5" height="167">
+        <div id="opening-wordmark"><img id="opening-lockup" src="images/opening-lockup.png" alt="Mastercard cybersecurity" width="234.5" height="167"></div>
       </div>
       <div id="story" class="layer hidden">
         <div id="story-sprite" aria-hidden="true"></div>
@@ -51,6 +51,25 @@
         <p id="final-heading" class="copy hidden"><strong>Trust</strong> is priceless. For protecting what<br>matters, there’s <strong>Mastercard</strong>.</p>
         <span id="final-cta" class="hidden">Learn more</span>
       </div>
+      <svg id="opening-symbol" viewBox="0 0 640 480" aria-hidden="true">
+        <defs>
+          <linearGradient id="moving-red" x1="0" y1="0" x2="0" y2="1">
+            <stop class="red-stop" stop-opacity="1" stop-color="#eb001b" offset="0" />
+            <stop class="red-stop red-fade" stop-opacity="1" stop-color="#eb001b" offset="1" />
+          </linearGradient>
+          <linearGradient id="moving-orange" x1="0" y1="1" x2="0" y2="0">
+            <stop class="orange-stop" stop-opacity="1" stop-color="#f79e1b" offset="0" />
+            <stop class="orange-stop orange-fade" stop-opacity="1" stop-color="#f79e1b" offset="1" />
+          </linearGradient>
+          <clipPath id="opening-red-clip">
+            <circle class="opening-red" cx="287.25" cy="239" r="53.25" />
+          </clipPath>
+        </defs>
+        <circle class="opening-red" cx="287.25" cy="239" r="53.25" fill="url(#moving-red)" />
+        <circle class="opening-orange" cx="352.75" cy="239" r="53.25" fill="url(#moving-orange)" />
+        <circle class="opening-orange opening-overlap" cx="352.75" cy="239" r="53.25" fill="#ff5f00"
+          clip-path="url(#opening-red-clip)" />
+      </svg>
     </div>
     <div id="default_exit" class="btn"></div>
   </div>

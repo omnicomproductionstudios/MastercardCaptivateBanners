@@ -18,30 +18,52 @@ function animate() {
   const fps = 10;
   const loopSteps = (frameCount - 1) * 2;
   const storyFadeOut = 0.35;
-  // Frame 1: Hold the static cybersecurity lockup.
-  tl.addLabel("frame1", 0);
+  // Frame 1: Hold, squeeze together, then release the lock.
+  tl.addLabel("frame1", 0)
+    .to(".opening-red", 0.24, { attr: { cx: 295.25 }, ease: "sine.inOut" }, "frame1+=0.72")
+    .to(".opening-orange", 0.24, { attr: { cx: 344.75 }, ease: "sine.inOut" }, "frame1+=0.72")
+    .to(".opening-red", 0.42, { attr: { cx: 287.25 }, ease: "sine.inOut" }, "frame1+=0.96")
+    .to(".opening-orange", 0.42, { attr: { cx: 352.75 }, ease: "sine.inOut" }, "frame1+=0.96");
 
-  // Let the opening lockup clear before revealing the next frame.
-  tl.addLabel("frame2", "frame1+=1.5")
-    .to("#opening", 0.3, { autoAlpha: 0, ease: "power1.inOut" }, "frame2")
-    .addLabel("storyStart")
-    .to("#story", 0.4, { autoAlpha: 1, ease: "power1.inOut" })
+  // The same circles move apart and enlarge into the photo's side arcs.
+  tl.addLabel("frame2", "frame1+=1.62")
+    .to("#opening-wordmark", 0.2, { autoAlpha: 0, ease: "sine.inOut" }, "frame2")
+    .to(".opening-red", 0.65, {
+      attr: { cx: -110.44, cy: 248.814, r: 180.8 },
+      opacity: 1,
+      ease: "power2.inOut"
+    }, "frame2+=0.15")
+    .to(".opening-orange", 0.65, {
+      attr: { cx: 750.44, cy: 248.814, r: 180.8 },
+      opacity: 1,
+      ease: "power2.inOut"
+    }, "frame2+=0.15")
+    .to(".red-stop, .orange-stop", 0.4, { attr: { "stop-color": "#ff5f00" }, ease: "sine.inOut" }, "frame2+=0.4")
+    .to(".red-fade, .orange-fade", 0.4, { attr: { "stop-opacity": 0 }, ease: "sine.inOut" }, "frame2+=0.4")
+    .addLabel("storyStart", "frame2+=0.3")
+    .to("#opening", 0.4, { autoAlpha: 0, ease: "sine.inOut" }, "storyStart")
+    .to("#story", 0.4, { autoAlpha: 1, ease: "sine.inOut" }, "storyStart")
     .to("#story-copy", 0.45, { autoAlpha: 1, ease: "power1.out" }, "+=0.1")
     .to("#story-copy", 0.35, { autoAlpha: 0, ease: "power1.inOut" }, "+=3.1");
 
   // Frame 3: Clear the story, then bring in both logo icons together.
   tl.addLabel("frame3")
-    .to("#story", storyFadeOut, { autoAlpha: 0, ease: "power1.inOut" }, "frame3")
+    .to("#story, #opening-symbol", storyFadeOut, { autoAlpha: 0, ease: "power1.inOut" }, "frame3")
     .set("#final", { autoAlpha: 1 }, "frame3+=0.35")
     .to("#final-heading", 0.45, { autoAlpha: 1, ease: "power1.out" }, "frame3+=0.45")
     .to(".final-red", 0.85, { attr: { cx: 287.25 }, ease: "power3.out" }, "frame3+=1.05")
     .to(".final-orange", 0.85, { attr: { cx: 352.75 }, ease: "power3.out" }, "frame3+=1.05")
-    .fromTo("#final-wordmark", 0.65, {
+    // The closing mark locks once after both circles meet.
+    .to(".final-red", 0.24, { attr: { cx: 295.25 }, ease: "sine.inOut" }, "+=0.1")
+    .to(".final-orange", 0.24, { attr: { cx: 344.75 }, ease: "sine.inOut" }, "<")
+    .to(".final-red", 0.42, { attr: { cx: 287.25 }, ease: "sine.inOut" })
+    .to(".final-orange", 0.42, { attr: { cx: 352.75 }, ease: "sine.inOut" }, "<")
+    .fromTo("#final-wordmark", 0.45, {
       autoAlpha: 0,
-      "--reveal": "100%"
+      y: -5
     }, {
       autoAlpha: 1,
-      "--reveal": "0%",
+      y: 0,
       ease: "sine.out"
     }, "+=0.15")
     .to("#final-cta", 0.4, { autoAlpha: 1, ease: "power1.out" }, "+=0.15");
